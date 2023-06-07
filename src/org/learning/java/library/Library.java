@@ -14,8 +14,20 @@ public class Library {
       
       System.out.println("Inserisci il titolo del libro");
       String title = scanner.nextLine();
-      System.out.println("Inserisci il numero di pagine del libro");
-      int pages = Integer.parseInt(scanner.nextLine());
+      
+      boolean validPages = false;
+      int pages = 0;
+      while (!validPages) {
+        try {
+          System.out.println("Inserisci il numero di pagine del libro");
+          pages = Integer.parseInt(scanner.nextLine());
+          validPages = true;
+        } catch (NumberFormatException e) {
+          System.out.println("Errore: Inserisci un numero valido per le pagine.");
+        }
+      }
+//      System.out.println("Inserisci il numero di pagine del libro");
+//      int pages = Integer.parseInt(scanner.nextLine());
       System.out.println("Inserisci l'autore del libro");
       String author = scanner.nextLine();
       System.out.println("Inserisci l'editore del libro");
