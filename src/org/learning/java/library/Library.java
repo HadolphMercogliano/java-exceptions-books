@@ -23,7 +23,13 @@ public class Library {
       
       try {
         books[i] = new Book(title, pages, author, editor);
-      } catch (RuntimeException e) {
+      System.out.println("libro : " + (i+1) + " inserito correttamente");
+      }
+      catch (NumberFormatException e) {
+        System.out.println("Errore: " + e.getMessage());
+        i--;
+      }
+      catch (IllegalArgumentException e) {
         System.out.println("Errore: " + e.getMessage());
         i--;
       }
