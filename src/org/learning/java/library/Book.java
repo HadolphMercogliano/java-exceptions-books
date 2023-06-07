@@ -44,4 +44,9 @@ public class Book {
   public void setEditor(String editor) {
     this.editor = editor;
   }
+  
+  @Override
+  public String toString() {
+    return "Libro {" + "titolo= " + title + ", pagine= " + pages + ", autore= " + author+ "}";
+  }
 }
