@@ -9,6 +9,7 @@ public class Library {
     System.out.println("Quanti libri vuoi?");
     int nLibri = Integer.parseInt(scanner.nextLine());
     Book[] books = new Book[nLibri];
+    
     for (int i = 0; i < nLibri; i++) {
       
       System.out.println("Inserisci il titolo del libro");
@@ -19,7 +20,14 @@ public class Library {
       String author = scanner.nextLine();
       System.out.println("Inserisci l'editore del libro");
       String editor = scanner.nextLine();
-      books[i] = new Book(title, pages, author, editor);
+      
+      try {
+        books[i] = new Book(title, pages, author, editor);
+      } catch (RuntimeException e) {
+        System.out.println("Errore: " + e.getMessage());
+        i--;
+      }
+//      books[i] = new Book(title, pages, author, editor);
     }
     System.out.println("Il tuo carrello:");
     for (Book book : books) {
